@@ -1,0 +1,61 @@
+/* src/components/workspace/Workspace.css */
+
+.workspace-container {
+  padding: 30px; /* Increased padding */
+  background-color: #f0f0f0; /* Lighter background */
+  border-radius: 10px;
+}
+
+.workspace-back-link {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px; 
+  margin-bottom: 25px; /* Increased margin */
+  font-weight: 500;
+}
+
+.workspace-heading {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 30px; /* Increased margin */
+  text-align: center;
+}
+
+.workspace-columns-container { 
+  display: flex;
+  justify-content: center; /* Centered columns */
+  gap: 20px; /* Add some gap between columns */
+}
+
+.workspace-column {
+  border: 1px solid #ddd; /* Lighter column borders */
+  padding: 25px; /* Increased padding */
+  width: 32%; /* Adjusted width */
+  min-height: 350px; /* Increased min-height */
+  background-color: #fff; /* White column background */
+  border-radius: 10px; /* Consistent border-radius */
+}
+
+.column-heading {
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 300; /* Thinner font */
+}
+
+.workspace-card-list {
+  padding: 0;
+}
+
+.create-task-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}

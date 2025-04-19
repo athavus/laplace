@@ -1,0 +1,94 @@
+/* Modal de detalhes do projeto */
+.project-detail-row {
+  display: flex;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #374151;
+}
+
+.project-detail-row:last-of-type {
+  border-bottom: none;
+}
+
+.detail-label {
+  flex: 0 0 120px;
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+.detail-value {
+  flex: 1;
+  color: #f3f4f6;
+}
+
+.project-description {
+  margin-top: 20px;
+}
+
+.project-description h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-bottom: 10px;
+}
+
+.description-content {
+  background-color: #1f2937;
+  border-radius: 8px;
+  padding: 16px;
+  color: #f3f4f6;
+  min-height: 100px;
+  white-space: pre-wrap;
+}
+
+/* Status badges dentro do modal */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.status-badge .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.status-em-análise {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+}
+
+.status-em-análise .status-dot {
+  background-color: #60a5fa;
+}
+
+.status-em-andamento {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+}
+
+.status-em-andamento .status-dot {
+  background-color: #34d399;
+}
+
+.status-arquivado {
+  background-color: rgba(156, 163, 175, 0.1);
+  color: #9ca3af;
+}
+
+.status-arquivado .status-dot {
+  background-color: #9ca3af;
+}
+
+.status-concluído {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #a78bfa;
+}
+
+.status-concluído .status-dot {
+  background-color: #a78bfa;
+}

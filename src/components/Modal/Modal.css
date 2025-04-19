@@ -1,0 +1,99 @@
+/* Modal styles */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background-color: #0e1320;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 550px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #1e2a45;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #1e2a45;
+  background-color: #0a101c;
+}
+
+.modal-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #6d9bf5;
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  color: #a1a6b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 0.25rem;
+}
+
+.modal-close-button:hover {
+  color: #f5f5f7;
+  background-color: #1e2a45;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #1e2a45;
+  background-color: #0a101c;
+}
+
+/* Botões comuns para modais */
+.modal-button {
+  border-radius: 6px;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-button-cancel {
+  background-color: transparent;
+  border: 1px solid #2a3a5a;
+  color: #f5f5f7;
+}
+
+.modal-button-cancel:hover {
+  background-color: #1e2a45;
+}
+
+.modal-button-primary {
+  background-color: #4d76d1;
+  border: none;
+  color: white;
+  font-weight: 500;
+}
+
+.modal-button-primary:hover {
+  background-color: #3a5da3;
+}
