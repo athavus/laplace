@@ -1,12 +1,100 @@
-# React + Vite
+# Laplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Laplace é um aplicativo web desenvolvido para substituir o Trello no LAPLIN (Laboratório de Análise e Processamento de Linguagem Natural). Ele serve como uma ferramenta para organização de projetos, oferecendo um sistema de kanban e gerenciamento de tarefas.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📋 Funcionalidades
 
-## Expanding the ESLint configuration
+- **Organização de Projetos:** Criação de múltiplos projetos para diferentes equipes ou objetivos.
+- **Sistema de Kanban:** Cada projeto possui um quadro kanban personalizável para a gestão visual das tarefas.
+- **Gerenciamento de Tarefas:** Adicione, edite e mova tarefas entre as colunas do quadro kanban.
+- **Interface Intuitiva:** Design simples e fácil de usar.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Tecnologias Utilizadas
+
+Laplace foi desenvolvido utilizando as seguintes tecnologias:
+
+- **React** (61.9%): Lógica do aplicativo e funcionalidades interativas.
+- **CSS** (37.5%): Estilização e design da interface do usuário.
+- **HTML** (0.6%): Estrutura básica das páginas da aplicação.
+
+---
+
+## 🛠️ Como Executar o Projeto
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/athavus/laplace.git
+   cd laplace
+   ```
+
+2. **Instale as dependências (caso necessário):**
+   Verifique o arquivo `package.json` para dependências e use o gerenciador de pacotes apropriado (ex.: npm ou yarn):
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Acesse a aplicação em seu navegador:**
+   - Normalmente disponível em: `http://localhost:3000`
+
+---
+
+## 📦 Estrutura do Projeto
+
+```plaintext
+laplace/
+├── public/                # Arquivos estáticos
+├── src/
+│   ├── components/        # Componentes reutilizáveis
+│   ├── pages/             # Páginas principais
+│   ├── assets/            # imagens e complementos (CSS)
+│   └── services/          # Serviços do "backend"
+├── package.json           # Gerenciador de dependências
+└── README.md              # Documentação do projeto
+```
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são sempre bem-vindas! Siga os passos abaixo para contribuir:
+
+1. Faça um fork do projeto.
+2. Crie uma nova branch com sua feature ou correção:
+   ```bash
+   git checkout -b minha-feature
+   ```
+3. Faça o commit das suas alterações:
+   ```bash
+   git commit -m 'Minha nova feature'
+   ```
+4. Envie as alterações para o seu fork:
+   ```bash
+   git push origin minha-feature
+   ```
+5. Abra um Pull Request no repositório original.
+
+---
+
+## 📝 Licença
+
+Este projeto está sob a licença **MIT**. Veja o arquivo `LICENSE` para mais detalhes.
+
+---
+
+## 📞 Contato
+
+Caso tenha dúvidas ou sugestões, entre em contato:
+
+- **Autor:** [Athavus](https://github.com/athavus)
+- **Repositório:** [Laplace](https://github.com/athavus/laplace)
