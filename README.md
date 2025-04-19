@@ -1,6 +1,6 @@
 # Laplace
 
-Laplace é um aplicativo web desenvolvido para substituir o Trello no LAPLIN (Laboratório de Análise e Processamento de Linguagem Natural). Ele serve como uma ferramenta para organização de projetos, oferecendo um sistema de kanban e gerenciamento de tarefas.
+Laplace é um aplicativo web desenvolvido para substituir o Trello no LAPLIN (Laboratório de Análise e Processamento de Linguagem Natural). Ele serve como uma ferramenta para organização de projetos, oferecendo um sistema de kanban e gerenciamento de tarefas. Esse software não é o usado pelo laboratório, é uma versão que fiz para ser open source que ao invés de acessar o backend, apenas deixa tudo salvo no localStorage e não tem como ser usada em equipe.
 
 ---
 
