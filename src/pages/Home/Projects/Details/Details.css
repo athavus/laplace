@@ -1,0 +1,104 @@
+/* Status badges dentro do modal */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.status-badge .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.status-em-análise {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+}
+
+.status-em-análise .status-dot {
+  background-color: #60a5fa;
+}
+
+.status-em-andamento {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+}
+
+.status-em-andamento .status-dot {
+  background-color: #34d399;
+}
+
+.status-arquivado {
+  background-color: rgba(156, 163, 175, 0.1);
+  color: #9ca3af;
+}
+
+.status-arquivado .status-dot {
+  background-color: #9ca3af;
+}
+
+.status-concluído {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #a78bfa;
+}
+
+.status-concluído .status-dot {
+  background-color: #a78bfa;
+}
+
+/* Existing CSS styles would be here */
+
+/* Editing mode styles */
+.edit-input, .edit-select, .edit-textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.edit-input:focus, .edit-select:focus, .edit-textarea:focus {
+  border-color: none;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.1);
+}
+
+.edit-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.modal-button-save {
+  background-color: #4d76d1;
+  color: white;
+}
+
+.modal-button-save:hover {
+  background-color: #3a5da3;
+}
+
+.modal-button-edit {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.modal-button-edit:hover {
+  background-color: #0b5ed7;
+}
+
+.loading-indicator {
+  margin-right: auto;
+  color: #666;
+  font-size: 14px;
+}
+
+.error-message {
+  margin-right: auto;
+  color: #dc3545;
+  font-size: 14px;
+}

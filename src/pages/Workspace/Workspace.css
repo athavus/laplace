@@ -1,61 +1,287 @@
-/* src/components/workspace/Workspace.css */
-
+/* Workspace styles */
 .workspace-container {
-  padding: 30px; /* Increased padding */
-  background-color: #f0f0f0; /* Lighter background */
-  border-radius: 10px;
+  padding: 20px;
+  background-color: #111827;
+  border-radius: 12px;
+  color: #f3f4f6;
+  width: 95%;
+  height: 92vh;
+  margin: 1% 1% 1% 2.5%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-.workspace-back-link {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #007bff;
+
+.back-to-home-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #4d76d1;
   color: #fff;
   text-decoration: none;
-  border-radius: 8px; 
-  margin-bottom: 25px; /* Increased margin */
+  border-radius: 6px;
   font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.back-to-home-link:hover {
+  background-color: #3a5da3;
 }
 
 .workspace-heading {
-  font-size: 2.2rem;
-  color: #333;
-  margin-bottom: 30px; /* Increased margin */
-  text-align: center;
-}
-
-.workspace-columns-container { 
+  font-size: 1.5rem;
+  color: #f3f4f6;
+  margin: 0;
   display: flex;
-  justify-content: center; /* Centered columns */
-  gap: 20px; /* Add some gap between columns */
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.workspace-column {
-  border: 1px solid #ddd; /* Lighter column borders */
-  padding: 25px; /* Increased padding */
-  width: 32%; /* Adjusted width */
-  min-height: 350px; /* Increased min-height */
-  background-color: #fff; /* White column background */
-  border-radius: 10px; /* Consistent border-radius */
+.project-status {
+  font-size: 0.875rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  font-weight: normal;
 }
 
-.column-heading {
-  margin-bottom: 10px;
-  color: #333;
-  font-weight: 300; /* Thinner font */
+.project-description {
+  background-color: #1f2937;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+  color: #d1d5db;
+  border-left: 4px solid #4d76d1;
 }
 
-.workspace-card-list {
+/* Columns layout */
+.columns-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0; /* Importante para que o flex funcione corretamente */
+}
+
+.column {
+  flex: 1;
+  background-color: #1f2937;
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Permite que as colunas encolham */
+  overflow: hidden; /* Evita que o conteúdo transborde */
+  max-height: 100%; /* Limita a altura ao container pai */
+}
+
+.column ul {
+  flex: 1;
+  margin: 0;
   padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  min-height: 0; /* Permite que a lista encolha */
 }
 
-.create-task-button {
-  display: block;
+
+.create-task-form {
+  margin-top: 10px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.create-task-form input {
   width: 100%;
   padding: 10px;
-  background-color: #e0e0e0;
+  border-radius: 6px;
+  border: 1px solid #4b5563;
+  background-color: #374151;
+  color: #f3f4f6;
+  margin-bottom: 8px;
+}
+
+.create-task-form input:focus {
+  outline: none;
+  border-color: #4d76d1;
+  box-shadow: 0 0 0 2px rgba(77, 118, 209, 0.2);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.form-buttons button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
   border: none;
-  border-radius: 5px;
-  text-align: center;
   cursor: pointer;
+  font-weight: 500;
+}
+
+.submit-button {
+  background-color: #4d76d1;
+  color: #fff;
+}
+
+.submit-button:hover {
+  background-color: #3a5da3;
+}
+
+.cancel-button {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.cancel-button:hover {
+  background-color: #4b5563;
+}
+
+
+/* Media queries para responsividade */
+@media (max-width: 1024px) {
+  .workspace-container {
+    width: 96%;
+    height: 94vh;
+    padding: 16px;
+    margin: 1% auto;
+  }
+  
+  .columns-container {
+    gap: 12px;
+  }
+  
+  .column {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .workspace-container {
+    width: 97%;
+    height: auto;
+    min-height: 95vh;
+    margin: 1% auto;
+    padding: 14px;
+  }
+  
+  .workspace-heading {
+    margin-top: 10px;
+    font-size: 1.3rem;
+  }
+  
+  .columns-container {
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 14px;
+  }
+  
+  .column {
+    min-height: 250px;
+    max-height: none;
+  }
+  
+  /* Diferenciar visualmente as colunas */
+  .column-to-do {
+    border-top: 3px solid #3b82f6;
+  }
+  
+  .column-in-progress {
+    border-top: 3px solid #ec4899;
+  }
+  
+  .column-done {
+    border-top: 3px solid #10b981;
+  }
+  
+  .column ul {
+    max-height: none;
+  }
+  
+  /* Ajuste para ícones em telas médias */
+  .column-title-with-icon {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workspace-container {
+    width: 98%;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 1% auto;
+  }
+  
+  .back-to-home-link {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .workspace-heading {
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .project-description {
+    padding: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  
+  .column {
+    padding: 12px 10px;
+    margin-bottom: 12px;
+    min-height: 200px;
+    border-radius: 6px;
+  }w
+  
+  .create-task-form input {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .form-buttons button {
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+  
+  /* Opcionalmente, mostrar apenas a coluna ativa em telas muito pequenas */
+  .column.hidden-mobile {
+    display: none;
+  }
+}
+
+/* Estilo adicional para mostrar melhor os cards em dispositivos móveis */
+@media (max-width: 480px) {
+  .card {
+    margin-bottom: 10px;
+    padding: 12px 10px;
+  }
+  
+  .card-title {
+    font-size: 0.95rem;
+  }
+  
+  .card-actions {
+    padding-top: 8px;
+    margin-top: 8px;
+  }
+  
+  .card-delete {
+    padding: 4px;
+  }
 }

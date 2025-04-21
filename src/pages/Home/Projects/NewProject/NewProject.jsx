@@ -1,27 +1,10 @@
-import { useState } from "react";
+// components/NewProject/NewProject.jsx
 import Modal from "../../../../components/Modal/Modal";
+import { useNewProjectForm } from "../../../../hooks/home/new-project/useProjectForm";
 import "./NewProject.css";
 
 function NewProject({ isOpen, onClose, newProject, onSubmit }) {
-  const [formData, setFormData] = useState({
-    name: newProject?.name || "",
-    description: newProject?.description || "",
-    coordinator: newProject?.coordinator || "",
-    priority: newProject?.priority || "Média",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(formData);
-  };
+  const { formData, handleChange, handleSubmit } = useNewProjectForm(newProject, onSubmit);
 
   const footer = (
     <>

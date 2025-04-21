@@ -1,0 +1,203 @@
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(115deg, #262f3d 86%, #36326a 100%);
+  border-radius: 1rem;
+  cursor: grab;
+  font-size: 0.98rem;
+  box-shadow: 0 4px 16px rgba(24, 23, 41, 0.23), 0 1.5px 7px 0 rgba(60,60,90,0.06);
+  color: #e4e6eb;
+  font-weight: 400;
+  border-left: 5px solid #4d76d1;
+  transition: transform 0.22s cubic-bezier(0.4,0,0.2,1), box-shadow 0.16s, border-color 0.16s;
+  overflow: hidden;
+  gap: 0.8rem;
+}
+
+.card:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 8px 24px rgba(24, 23, 41, 0.33), 0 4px 12px 0 rgba(60,60,90,0.13);
+  z-index: 2;
+}
+
+.card:active {
+  cursor: grabbing;
+  transform: scale(0.99);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+  padding-bottom: 0.1rem;
+}
+
+.card-title {
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.01em;
+  flex: 1 1 auto;
+  color: #fff;
+  line-height: 1.2;
+  padding-right: 0.28rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #a7b9cb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 0.4rem;
+  opacity: 0.68;
+  transition: background 0.15s, color 0.16s, opacity 0.19s;
+}
+
+.delete-button:hover {
+  color: #ef4444;
+  transition: 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.card-description {
+  color: #b0b8c4;
+  font-size: 0.91rem;
+  line-height: 1.6;
+  margin: 0 0 0.4rem 0;
+  padding-left: 0.14rem;
+  opacity: 0.92;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.14rem;
+  font-size: 0.78rem;
+  color: #a1adc6;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.32rem;
+  background: rgba(64,71,110,0.11);
+  border-radius: 0.45rem;
+  padding: 0.23rem 0.66rem;
+  font-size: 0.86em;
+  color: #b2bbd4;
+  font-weight: 500;
+  min-width: fit-content;
+  transition: background 0.13s;
+}
+
+.meta-item .meta-icon {
+  opacity: 0.72;
+}
+
+.meta-item:hover {
+  background: rgba(110,119,180,0.17);
+}
+
+.card-participants {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.36rem;
+  margin-bottom: -0.25rem;
+}
+
+.participants-icon {
+  margin-top: 0.05rem;
+  opacity: 0.62;
+}
+
+.participants-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.22rem;
+}
+
+.participant-tag {
+  background: linear-gradient(80deg, rgba(120,156,250,0.12) 54%, rgba(176,143,255,0.10) 100%);
+  color: #e7e9fc;
+  padding: 0.22rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.87em;
+  margin-bottom: 1.2px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.urgency-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.24rem;
+  border-radius: 0.38rem;
+  font-size: 0.89em;
+  padding: 0.21rem 0.55rem 0.21rem 0.5rem;
+  font-weight: 600;
+  min-width: fit-content;
+  margin-top: 0.25rem;
+  margin-left: auto;
+  max-width: 70%;
+  transition: background 0.17s, color 0.17s;
+}
+
+.urgency-indicator .urgency-icon {
+  opacity: 0.88;
+}
+
+.urgency-low {
+  border-left: 5px solid #60a5fa;
+  background: linear-gradient(91deg,rgba(96,165,250,0.22),rgba(60,160,255,0.13));
+  color: #7ec3fe;
+}
+
+.urgency-normal {
+  border-left: 5px solid #4d76d1;
+  background: linear-gradient(91deg,rgba(77,118,209,0.18),rgba(77,118,209,0.09));
+  color: #aab7e5;
+}
+
+.urgency-high {
+  border-left: 5px solid #f59e0b;
+  background: linear-gradient(91deg,rgba(245,158,11,0.22),rgba(245,158,11,0.13));
+  color: #fedba8;
+}
+
+.urgency-critical {
+  border-left: 5px solid #ef4444;
+  background: linear-gradient(91deg,rgba(239,68,68,0.23),rgba(239,68,68,0.11));
+  color: #fba5ae;
+}
+
+/* Colunas de tabela (prontas para integração) */
+.column-to-do .card {
+  border-left-color: #60a5fa;
+}
+.column-in-progress .card {
+  border-left-color: #34d399;
+}
+.column-done .card {
+  border-left-color: #a78bfa;
+}

@@ -1,0 +1,23 @@
+.workspace-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .workspace-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workspace-header {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+}

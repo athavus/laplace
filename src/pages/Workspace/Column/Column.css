@@ -1,0 +1,82 @@
+.column-heading {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #d1d5db;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #374151;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0; /* Evita que o cabeçalho seja comprimido */
+}
+
+.column-title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaçamento entre o ícone e o texto */
+}
+
+.column-title-with-icon svg {
+  color: #d1d5db;
+  flex-shrink: 0;
+}
+
+.column-title-with-icon span {
+  line-height: 1;
+}
+
+.column-to-do .column-title-with-icon svg {
+  color: #3b82f6; /* Azul */
+}
+
+.column-in-progress .column-title-with-icon svg {
+  color: #ec4899; /* Rosa */
+}
+
+.column-done .column-title-with-icon svg {
+  color: #10b981; /* Verde */
+}
+
+.create-task-button {
+  padding: 10px;
+  background-color: #374151;
+  color: #d1d5db;
+  border: 1px dashed #4b5563;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  flex-shrink: 0; /* Evita que o botão seja comprimido */
+}
+
+.create-task-button:hover {
+  background-color: #4b5563;
+  color: #f3f4f6;
+}
+
+.add-task-icon {
+  margin-right: 8px;
+}
+
+@media (max-width: 480px) {
+  .column-heading {
+    font-size: 1rem;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+
+  .column-title-with-icon {
+    gap: 10px; /* Espaçamento maior em mobile */
+  }
+  
+  .create-task-button {
+    padding: 8px;
+    font-size: 0.85rem;
+    margin-top: 8px;
+  }
+}

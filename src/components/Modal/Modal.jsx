@@ -1,4 +1,5 @@
-import { useCallback } from "react";
+// components/Modal/Modal.jsx
+import { useModal } from "../../hooks/common/useModal";
 import "./Modal.css";
 
 function Modal({ 
@@ -9,17 +10,9 @@ function Modal({
   footer,
   maxWidth = "600px"
 }) {
+  const { handleModalClick, handleKeyDown, handleKeyUp } = useModal(onClose);
+
   if (!isOpen) return null;
-
-  // Evita que cliques no conteúdo do modal o fechem
-  const handleModalClick = useCallback((e) => {
-    e.stopPropagation();
-  }, []);
-
-  // Fecha o modal ao pressionar Escape
-  const handleKeyDown = useCallback((e) => {
-    if (e.key === "Escape") onClose();
-  }, [onClose]);
 
   return (
     <div
@@ -30,7 +23,7 @@ function Modal({
       <div
         className="modal-content"
         onClick={handleModalClick}
-        onKeyUp={(e) => e.stopPropagation()}
+        onKeyUp={handleKeyUp}
         style={{ maxWidth }}
       >
         <div className="modal-header">

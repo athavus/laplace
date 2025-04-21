@@ -1,0 +1,27 @@
+
+.selected-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+}
+.delete-selected-button {
+  background-color: #e96767;
+  outline: none;
+  border: none;
+  max-width: 160px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  border-radius: 6px;
+  transition: 0.2s ease-in-out;
+}
+
+.delete-selected-button:hover {
+  background-color: #db3a3a;
+}
+
+.delete-selected-button-text {
+  display: flex;
+  gap: 5px
+}

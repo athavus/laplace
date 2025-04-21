@@ -1,0 +1,527 @@
+/*===========================================================================
+  TABELA DE PROJETOS - ESTILOS PRINCIPAIS
+===========================================================================*/
+
+/*---------------------------------------------------------------------------
+  1. CONTÊINER PRINCIPAL
+---------------------------------------------------------------------------*/
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  /* Permite rolagem horizontal para tabelas */
+  border-radius: 8px;
+  border: 1px solid #1e2a45;
+  background-color: #0a101c;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.projects-table th {
+  background-color: #1e2a45;
+  text-align: left;
+  padding: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #a1a6b8;
+  border-bottom: 1px solid #2a3a5a;
+}
+
+.projects-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #1e2a45;
+  font-size: 0.875rem;
+}
+
+.projects-table tbody tr {
+  background-color: #0a101c;
+  transition: background-color 0.2s ease;
+}
+
+.projects-table tbody tr.selected {
+  background-color: #1a2a4a;
+  /* Light blue for selected rows */
+}
+
+.projects-table .id-cell {
+  display: flex;
+  align-items: baseline;
+  /* Align text with checkbox */
+  gap: 0.5rem;
+}
+
+/* Custom checkbox styling */
+.projects-table input[type="checkbox"] {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #4d76d1;
+  /* Blue border */
+  border-radius: 4px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.projects-table input[type="checkbox"]:hover {
+  background-color: rgba(77, 118, 209, 0.1);
+  /* Light blue hover */
+}
+
+.projects-table input[type="checkbox"]:checked {
+  background-color: #4d76d1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #4d76d1;
+}
+
+.project-id {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8125rem;
+  color: #6d9bf5;
+}
+
+.projects-table tbody tr:hover {
+  background-color: #121b30;
+}
+
+.projects-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Table columns */
+.identifier-col {
+  width: 150px;
+}
+
+.priority-col {
+  width: 120px;
+}
+
+.actions-col {
+  width: 200px;
+}
+
+/* Table cell styling - Minimalist Design */
+.id-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0;
+}
+
+/* Custom checkbox styling */
+.checkbox-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transform: translate(-10px, 3px);
+}
+
+.project-checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  cursor: pointer;
+}
+
+.checkbox-custom {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  border: 1.5px solid #2a3a5a;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-checkbox:checked+.checkbox-custom {
+  background-color: #4d76d1;
+  border-color: #4d76d1;
+}
+
+.project-checkbox:checked+.checkbox-custom::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.project-checkbox:focus+.checkbox-custom {
+  box-shadow: 0 0 0 2px rgba(77, 118, 209, 0.3);
+}
+
+/* Project ID styling */
+.project-id {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transform: translateX(-10px);
+}
+
+.id-prefix {
+  font-weight: 500;
+  color: #6d9bf5;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.id-separator {
+  color: #3a5da3;
+  opacity: 0.5;
+}
+
+.id-number {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #a1a6b8;
+}
+
+/* Hover state */
+.id-cell:hover .id-prefix {
+  color: #83aeff;
+}
+
+tr:hover .checkbox-custom {
+  border-color: #4d76d1;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-em-análise .status-dot {
+  background-color: #f5b14c;
+}
+
+.status-em-andamento .status-dot {
+  background-color: #4d76d1;
+}
+
+.status-concluído .status-dot {
+  background-color: #10b981;
+}
+
+.status-arquivado .status-dot {
+  background-color: #ef4444;
+}
+
+.priority-cell {
+  font-weight: 500;
+}
+
+.priority-cell:contains("Alta") {
+  color: #ef4444;
+}
+
+.priority-cell:contains("Média") {
+  color: #f5b14c;
+}
+
+.priority-cell:contains("Baixa") {
+  color: #10b981;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+
+/* Estilos para o botão de Workspace */
+.workspace-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.workspace-btn {
+  margin-top: 5px !important;
+  gap: 5px;
+  color: #2563eb;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+
+.workspace-btn:hover {
+  color: white;
+}
+
+
+.approve-btn,
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.approve-btn {
+  background-color: transparent;
+  border: none;
+  color: #a1a6b8;
+}
+
+.approve-btn:hover:not(:disabled) {
+  color: #4d76d1;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  border: none;
+  color: #a1a6b8;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  color: #ef4444;
+}
+
+.approve-btn:disabled,
+.cancel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.empty-table {
+  text-align: center;
+  color: #71717a;
+  padding: 3rem 1rem !important;
+}
+
+/* Details button */
+.details-btn {
+  background-color: transparent;
+  color: #2563eb;
+  border: none;
+  padding: 5px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: ease-in-out 0.2s;
+}
+
+.details-btn:hover {
+  color: white;
+}
+
+.delete-btn {
+  background-color: #1a1a1a;
+}
+
+/*---------------------------------------------------------------------------
+  10. RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS - Versão minimalista
+---------------------------------------------------------------------------*/
+@media screen and (max-width: 1002px) {
+
+  /* Ajuste do container para estilo minimalista */
+  .table-container {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+    overflow-x: hidden;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  /* Esconde o cabeçalho */
+  .projects-table thead {
+    display: none;
+  }
+
+  /* Transforma cada linha em um card minimalista */
+  .projects-table tbody tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    border: 1px solid #1e2a45;
+    border-radius: 8px;
+    background-color: #0a101c;
+    overflow: hidden;
+  }
+
+  /* Ajusta as células para layout minimalista */
+  .projects-table tbody td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(30, 42, 69, 0.5);
+    text-align: right;
+  }
+
+  /* Remove bordas e fundos desnecessários */
+  .projects-table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  /* Rótulos simplificados */
+  .projects-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 500;
+    color: #a1a6b8;
+    opacity: 0.8;
+    margin-right: 1rem;
+    text-align: left;
+    font-size: 0.8125rem;
+  }
+
+  /* Célula de ID simplificada */
+  .id-cell {
+    flex-direction: row;
+    justify-content: flex-end;
+    transform: none;
+    padding: 0;
+  }
+
+  /* Simplifica a aparência do checkbox */
+  .checkbox-wrapper {
+    transform: none;
+    margin-right: auto;
+  }
+
+  /* ID do projeto mais compacto */
+  .project-id {
+    transform: none;
+    justify-content: flex-end;
+    max-width: 60%;
+  }
+
+  /* Status mais minimalista */
+  .status-badge {
+    justify-content: end;
+    font-size: 0.8125rem;
+  }
+
+  /* Botões de ação mais limpos */
+  .actions-cell {
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .approve-btn,
+  .cancel-btn,
+  .delete-btn {
+    padding: 0.5rem;
+    background-color: transparent;
+    border-radius: 4px;
+  }
+
+
+
+  @media screen and (max-width: 441px) {
+
+    /* Container sem padding nos lados */
+    .table-container {
+      padding: 0 0.5rem;
+    }
+
+    /* Configura o layout das ações em coluna */
+    .actions-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /* Linha com botão de detalhes (descrição) */
+    .actions-cell .details-btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+    }
+
+    /* Linha com botões Iniciar e Arquivar */
+    .actions-cell .approve-btn,
+    .actions-cell .cancel-btn {
+      width: calc(50% - 0.25rem);
+      margin: 0;
+    }
+
+    /* Container para botões Iniciar e Arquivar */
+    .actions-cell:after {
+      content: "";
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    /* Agrupa os botões Iniciar e Arquivar em uma linha */
+    .actions-cell .approve-btn,
+    .actions-cell .cancel-btn {
+      display: inline-flex;
+      justify-content: center;
+    }
+
+    /* Container específico para Iniciar e Arquivar */
+    .action-row {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      gap: 0.5rem;
+      justify-content: space-between;
+    }
+
+    /* Linha para o botão de excluir */
+    .actions-cell .delete-btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+    }
+
+    .workspace-btn {
+      padding: 0;
+      transform: translateX(-3px);
+    }
+
+    /* Ajusta o tamanho do ID */
+    .id-prefix {
+      max-width: 80px;
+    }
+
+    /* Reduz o padding das células */
+    .projects-table tbody td {
+      padding: 0.625rem 0.75rem;
+    }
+  }
+}

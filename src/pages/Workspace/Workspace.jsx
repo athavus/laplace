@@ -1,177 +1,106 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './Workspace.css';
-import Card from './Card'; // Import the Card component
+import CreateTask from './CreateTask/CreateTask';
+import { ListTodo, Clock, CheckCircle } from 'lucide-react';
+
+// Importando os hooks personalizados
+import { useProjectCards } from '../../hooks/workspace/useProjectCards';
+import { useDragAndDrop } from '../../hooks/workspace/useDragAndDrop';
+import { useMobileDetection } from '../../hooks/workspace/useMobileDetection';
+import { useTaskModal } from '../../hooks/workspace/useTaskModal';
+
+// Importando os componentes
+import Header from './Header/Header';
+import Column from './Column/Column';
+import Tabs from './Tabs/Tabs';
+import Loading from './Loading/Loading';
+import Error from './Error/Error';
 
 const Workspace = ({ id }) => {
-  const [cards, setCards] = useState([]);
-  const [creatingTask, setCreatingTask] = useState(false);
+  // Usar os hooks personalizados
+  const { 
+    cards, 
+    projectDetails, 
+    loading, 
+    error, 
+    handleDeleteCard,
+    handleCreateCard,
+    handleUpdateCardColumn
+  } = useProjectCards(id);
+  
+  const { 
+    handleDragStart, 
+    handleDragEnd, 
+  } = useDragAndDrop(cards, () => {
+    // Este callback será invocado quando useDragAndDrop atualizar os cards
+    // Como ele já está sendo gerenciado pelo useProjectCards, podemos deixá-lo vazio
+  });
+  
+  const {
+    isMobile,
+    activeTab,
+    setActiveTab,
+    getColumnClassName
+  } = useMobileDetection();
+  
+  const {
+    isModalOpen,
+    creatingColumn,
+    handleOpenModal,
+    handleCloseModal,
+    handleSubmitNewTask
+  } = useTaskModal(handleCreateCard);
 
-
-  const handleDragStart = (e, card) => {
-    console.log('Drag started for card:', card);
-    e.dataTransfer.setData('application/json', JSON.stringify({ id: card.id, column: card.column }));
-
-  };
-
-  const handleDrop = (e, targetColumn) => {
+  // Adaptador para conectar o hook de drag-and-drop com o hook de project-cards
+  const handleDropAdapter = async (e, targetColumn) => {
     e.preventDefault();
     const data = JSON.parse(e.dataTransfer.getData('application/json'));
-    console.log('Dropped card:', data, 'into column:', targetColumn);
-
-    setCards(prevCards =>
-      prevCards.map(card =>
-        card.id === data.id ? { ...card, column: targetColumn } : card
-      )
-    );
-  };
-  
-    const handleDragOver = (e) => {
-    e.preventDefault();
-
-  };
-  const [creatingTaskColumn, setCreatingTaskColumn] = useState(null);
-  const [newTaskText, setNewTaskText] = useState('');
-
-  const handleCreateTask = (column) => {
-    setCreatingTask(true);
-    setCreatingTaskColumn(column);
-    setNewTaskText(''); // Clear previous input
+    await handleUpdateCardColumn(data.id, targetColumn);
   };
 
-    const handleNewTaskTextChange = (e) => {
-      setNewTaskText(e.target.value);
-  };
+  if (loading) return <Loading />;
+  if (error) return <Error message={error} />;
 
-  const handleSubmitNewTask = (e, column) => {
-    e.preventDefault();
-    if (newTaskText.trim() === '') return;
-
-    const newTask = {
-      id: Math.random(),
-      text: newTaskText,
-      column: column,
-    };
-
-    setCards([...cards, newTask]);
-    setNewTaskText('');
-    setCreatingTask(false);
-    setCreatingTaskColumn(null);
-  };
-
-
-  const handleDeleteCard = (cardId) => {
-    setCards(cards.filter(card => card.id !== cardId));
-  };
+  // Definição das colunas para tornar o código mais escalável
+  const columns = [
+    { type: 'To Do', icon: ListTodo },
+    { type: 'In Progress', icon: Clock },
+    { type: 'Done', icon: CheckCircle }
+  ];
 
   return (
     <div className="workspace-container">
-      <Link to="/" className="back-to-home-link">Back to Home</Link>
-      <h2 className="workspace-heading">Workspace {id}</h2>
+      <Header projectDetails={projectDetails} />
+      
+      {projectDetails?.description && (
+        <p className="project-description">{projectDetails.description}</p>
+      )}
+      
+      {isMobile && (
+        <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
+      )}
+      
       <div className="columns-container">
-        <div
-          className="column"
-          onDrop={(e) => handleDrop(e, 'To Do')}
-          onDragOver={handleDragOver}
-        >
-          <h3 className='column-heading'>To Do</h3>
-          <ul style={{ listStyle: 'none', padding: 0 }}>
-            {cards
-              .filter(card => card.column === 'To Do')
-              .map(card => (
-                <Card
-                  key={card.id}
-                  card={card}
-                  handleDragStart={handleDragStart}
-                  handleDelete={handleDeleteCard}
-                />
-              ))}
-            {creatingTask && creatingTaskColumn === 'To Do' && (
-              <form onSubmit={(e) => handleSubmitNewTask(e, 'To Do')}>
-                <input type="text" value={newTaskText} onChange={handleNewTaskTextChange} />
-                <button type="submit">Add</button>
-              </form>
-            )}
-          </ul>
-          <button
-            className="create-task-button"
-            onClick={() => handleCreateTask('To Do')}
-            style={{ display: creatingTask && creatingTaskColumn === 'To Do' ? 'none' : 'block' }}
-          type="button"
-
-          >
-            + Add Task
-          </button>
-        </div>
-        <div
-          className="column"
-          onDrop={(e) => handleDrop(e, 'In Progress')}
-          onDragOver={handleDragOver}
-        >
-          <h3 className='column-heading'>In Progress</h3>
-          <ul style={{ listStyle: 'none', padding: 0 }}>
-            {cards
-              .filter(card => card.column === 'In Progress')
-              .map(card => (
-                <Card
-                  key={card.id}
-                  card={card}
-                  handleDragStart={handleDragStart}
-                  handleDelete={handleDeleteCard}
-                />
-              ))}
-            {creatingTask && creatingTaskColumn === 'In Progress' && (
-              <form onSubmit={(e) => handleSubmitNewTask(e, 'In Progress')}>
-                <input type="text" value={newTaskText} onChange={handleNewTaskTextChange} />
-                <button type="submit">Add</button>
-              </form>
-            )}
-          </ul>
-          <button
-            className="create-task-button"
-            onClick={() => handleCreateTask('In Progress')}
-            style={{ display: creatingTask && creatingTaskColumn === 'In Progress' ? 'none' : 'block' }}
-          type="button"
-
-          >
-            + Add Task
-          </button>
-        </div>
-        <div
-          className="column"
-          onDrop={(e) => handleDrop(e, 'Done')}
-          onDragOver={handleDragOver}
-        >
-          <h3 className='column-heading'>Done</h3>
-          <ul style={{ listStyle: 'none', padding: 0 }}>
-            {cards
-              .filter(card => card.column === 'Done')
-              .map(card => (
-                <Card
-                  key={card.id}
-                  card={card}
-                  handleDragStart={handleDragStart}
-                  handleDelete={handleDeleteCard}
-                />
-              ))}
-            {creatingTask && creatingTaskColumn === 'Done' && (
-              <form onSubmit={(e) => handleSubmitNewTask(e, 'Done')}>
-                <input type="text" value={newTaskText} onChange={handleNewTaskTextChange} />
-                <button type="submit">Add</button>
-              </form>
-            )}
-          </ul>
-          <button
-            className="create-task-button"
-            onClick={() => handleCreateTask('Done')}
-            style={{ display: creatingTask && creatingTaskColumn === 'Done' ? 'none' : 'block' }}
-          type="button"
-
-          >
-            + Add Task
-          </button>
-        </div>
+        {columns.map(column => (
+          <Column
+            key={column.type}
+            columnType={column.type}
+            cards={cards.filter(card => card.column === column.type)}
+            onDrop={handleDropAdapter}
+            onAddTask={handleOpenModal}
+            onDelete={handleDeleteCard}
+            dragHandlers={{ handleDragStart, handleDragEnd }}
+            className={getColumnClassName(column.type)}
+          />
+        ))}
       </div>
+      
+      <CreateTask 
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onSubmit={handleSubmitNewTask}
+        columnType={creatingColumn}
+      />
     </div>
   );
 };

@@ -1,0 +1,32 @@
+@media (max-width: 480px) {
+  /* Navegação em abas para dispositivos muito pequenos */
+  .columns-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .column-tab {
+    flex: 1;
+    padding: 8px 4px;
+    text-align: center;
+    background-color: #1f2937;
+    color: #d1d5db;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Espaço entre o ícone e o texto */
+  }
+  
+  .column-tab.active {
+    background-color: #2d3748;
+    border-bottom-color: #4d76d1;
+    color: #f3f4f6;
+  }
+}

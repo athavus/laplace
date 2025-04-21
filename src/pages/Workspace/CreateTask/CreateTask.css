@@ -1,0 +1,36 @@
+/* Form actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Urgency select styling */
+select[name="urgency"] option[value="low"] {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+select[name="urgency"] option[value="normal"] {
+  background-color: rgba(77, 118, 209, 0.1);
+  color: #4d76d1;
+}
+
+select[name="urgency"] option[value="high"] {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+select[name="urgency"] option[value="critical"] {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

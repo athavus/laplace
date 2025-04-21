@@ -1,0 +1,55 @@
+.participants-input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.participants-input-group input {
+  flex: 1;
+}
+
+.add-participant-btn {
+  background-color: #334155;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-participant-btn:hover {
+  background-color: #475569;
+}
+
+.participants-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.participant-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(59, 130, 246, 0.1);
+  border-radius: 12px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  color: #3b82f6;
+}
+
+.remove-participant-btn {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.remove-participant-btn:hover {
+  color: #ef4444;
+}

@@ -1,0 +1,21 @@
+.project-detail-row {
+  display: flex;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #374151;
+}
+
+.project-detail-row:last-of-type {
+  border-bottom: none;
+}
+
+.detail-label {
+  flex: 0 0 120px;
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+.detail-value {
+  flex: 1;
+  color: #f3f4f6;
+}
