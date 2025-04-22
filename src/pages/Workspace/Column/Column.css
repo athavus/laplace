@@ -52,6 +52,7 @@
   justify-content: center;
   font-weight: 500;
   flex-shrink: 0; /* Evita que o botão seja comprimido */
+  width: 100%;
 }
 
 .create-task-button:hover {
@@ -63,13 +64,49 @@
   margin-right: 8px;
 }
 
+/* Estilos específicos para mobile */
+.mobile-column-navigation {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 5px;
+}
+
+.mobile-nav-button {
+  flex: 1;
+  padding: 8px 5px;
+  background-color: #374151;
+  color: #d1d5db;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.mobile-nav-button.active {
+  background-color: #4d76d1;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .mobile-column-navigation {
+    display: flex;
+  }
+}
+
 @media (max-width: 480px) {
   .column-heading {
     font-size: 1rem;
     padding-bottom: 6px;
     margin-bottom: 10px;
   }
-
+  
   .column-title-with-icon {
     gap: 10px; /* Espaçamento maior em mobile */
   }
@@ -78,5 +115,14 @@
     padding: 8px;
     font-size: 0.85rem;
     margin-top: 8px;
+  }
+  
+  .mobile-column-navigation {
+    margin-bottom: 5px;
+  }
+  
+  .mobile-nav-button {
+    padding: 6px 4px;
+    font-size: 0.85rem;
   }
 }
