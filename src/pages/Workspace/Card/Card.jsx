@@ -61,7 +61,7 @@ const Card = ({
   return (
     <li
       className={`card ${getUrgencyClass()}`}
-      draggable={true}
+      draggable={!isMobile}
       onDragStart={(e) => handleDragStart(e, card)}
       onDragEnd={handleDragEnd}
     >
