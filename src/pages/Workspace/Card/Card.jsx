@@ -68,28 +68,27 @@ const Card = ({
       <div className="card-header">
         <h4 className="card-title">{card.text}</h4>
         <div className="card-actions">
-          {isMobile && (
-            <div className="mobile-card-controls">
-              <button
-                className="move-button move-left"
-                onClick={() => handleMoveCard('left')}
-                disabled={card.column === 'To Do'}
-                aria-label="Mover para coluna anterior"
-                title="Mover para coluna anterior"
-              >
-                <ChevronLeft size={16} />
-              </button>
-              <button
-                className="move-button move-right"
-                onClick={() => handleMoveCard('right')}
-                disabled={card.column === 'Done'}
-                aria-label="Mover para próxima coluna"
-                title="Mover para próxima coluna"
-              >
-                <ChevronRight size={16} />
-              </button>
-            </div>
-          )}
+          {/* Removida a condição isMobile - agora sempre renderiza e o CSS controla a visibilidade */}
+          <div className="mobile-card-controls">
+            <button
+              className="move-button move-left"
+              onClick={() => handleMoveCard('left')}
+              disabled={card.column === 'To Do'}
+              aria-label="Mover para coluna anterior"
+              title="Mover para coluna anterior"
+            >
+              <ChevronLeft size={16} />
+            </button>
+            <button
+              className="move-button move-right"
+              onClick={() => handleMoveCard('right')}
+              disabled={card.column === 'Done'}
+              aria-label="Mover para próxima coluna"
+              title="Mover para próxima coluna"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
           <button
             className="delete-button"
             onClick={() => onDelete(card.id)}

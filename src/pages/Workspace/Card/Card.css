@@ -58,7 +58,7 @@
 }
 
 .mobile-card-controls {
-  display: flex;
+  display: none; /* Escondido por padrão no desktop */
   align-items: center;
   gap: 0.3rem;
 }
@@ -260,7 +260,19 @@
   border-left-color: #10b981;
 }
 
-/* Media queries para dispositivos móveis */
+/* Media queries para tablets e dispositivos móveis */
+@media (max-width: 1224px) {
+  /* Mostra os controles mobile para tablets também */
+  .mobile-card-controls {
+    display: flex !important;
+  }
+  
+  /* Garante que os botões de movimento sejam visíveis */
+  .move-button {
+    display: flex !important;
+  }
+}
+
 @media (max-width: 768px) {
   .card {
     padding: 1.1rem;
@@ -273,6 +285,11 @@
 
   .mobile-column-indicator {
     display: flex;
+  }
+  
+  /* Força a exibição dos controles mobile */
+  .mobile-card-controls {
+    display: flex !important;
   }
 }
 
@@ -292,12 +309,9 @@
     max-width: 65%;
   }
   
-  .mobile-card-controls {
-    display: flex;
-  }
-  
   .card-description {
     font-size: 0.85rem;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
   }
   
