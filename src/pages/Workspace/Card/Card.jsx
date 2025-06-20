@@ -32,7 +32,7 @@ const Card = ({
     try {
       const date = new Date(dateString);
       return format(date, "dd/MM/yy", { locale: ptBR });
-    // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line no-unused-vars
     } catch (e) {
       return dateString;
     }
@@ -46,13 +46,13 @@ const Card = ({
     const columns = ['To Do', 'In Progress', 'Done'];
     const currentIndex = columns.indexOf(card.column);
     let newColumn;
-    
+
     if (direction === 'left' && currentIndex > 0) {
       newColumn = columns[currentIndex - 1];
     } else if (direction === 'right' && currentIndex < columns.length - 1) {
       newColumn = columns[currentIndex + 1];
     }
-    
+
     if (newColumn) {
       onMove(card.id, newColumn);
     }
@@ -89,14 +89,6 @@ const Card = ({
               <ChevronRight size={16} />
             </button>
           </div>
-          <button
-            className="delete-button"
-            onClick={() => onDelete(card.id)}
-            aria-label="Excluir tarefa"
-            title="Excluir"
-          >
-            <Trash2 size={17} />
-          </button>
         </div>
       </div>
       {card.description && (
@@ -121,18 +113,29 @@ const Card = ({
           </div>
         )}
       </div>
-      {hasParticipants && (
-        <div className="card-participants">
-          <Users size={14} className="participants-icon" />
-          <div className="participants-list">
-            {card.participants.map((participant, idx) => (
-              <span key={idx} className="participant-tag">
-                {participant}
-              </span>
-            ))}
+      <div className="card-footer">
+        {hasParticipants && (
+          <div className="card-participants">
+            <Users size={14} className="participants-icon" />
+            <div className="participants-list">
+              {card.participants.map((participant, idx) => (
+                <span key={idx} className="participant-tag">
+                  {participant}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+        <button
+          className="delete-button"
+          onClick={() => onDelete(card.id)}
+          aria-label="Excluir tarefa"
+          title="Excluir"
+        >
+          <Trash2 size={17} />
+        </button>
+      </div>
+
       {card.urgency && card.urgency !== "normal" && (
         <div className={`urgency-indicator ${getUrgencyClass()}`}>
           <AlertCircle size={14} className="urgency-icon" />

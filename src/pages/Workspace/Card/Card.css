@@ -170,6 +170,13 @@
   margin-bottom: -0.25rem;
 }
 
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
 .participants-icon {
   margin-top: 0.05rem;
   opacity: 0.62;
